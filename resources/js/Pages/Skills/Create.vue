@@ -16,7 +16,6 @@
                             type="name"
                             class="mt-1 block w-full"
                             v-model="form.name"
-                            required
                             autofocus
                             autocomplete="name"
                         />

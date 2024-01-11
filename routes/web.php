@@ -27,18 +27,14 @@ Route::get('/', function () {
     ]);
 });
 
+Route::middleware('auth')->group(function () {
 
-Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
     Route::resource('/skills', SkillController::class);
     Route::resource('/projects', ProjectController::class);
-});
-
-Route::middleware('auth')->group(function () {
-
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

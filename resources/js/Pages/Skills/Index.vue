@@ -51,21 +51,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="skill in skills.data" :key="skill.id"
-                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ skill.id }}
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ skill.name }}
-                            </td>
-                            <td class="px-6 py-4">
-                                <img :src="skill.image" class="w-12 h-12 rounded-full" />
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
+                            <tr v-for="skill in skills.data" :key="skill.id"
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ skill.id }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ skill.name }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <img :src="skill.image" class="w-12 h-12 rounded-full" />
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <Link
+                                        :href="route('skills.edit', skill.id)"
+                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline pr-1
+                                        ">Edit</Link>
+                                    <Link
+                                        :href="route('skills.destroy', skill.id)"
+                                        method="delete"
+                                        as="button"
+                                        type="button"
+                                        class="font-medium text-red-600 dark:text-red-500 hover:underline pl-1
+                                        ">Delete</Link>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

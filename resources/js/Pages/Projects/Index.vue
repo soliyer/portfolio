@@ -75,7 +75,17 @@
                             <img :src="project.image" class="w-12 h-12 rounded-full" />
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <Link
+                                :href="route('projects.edit', project.id)"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline pr-1
+                                        ">Edit</Link>
+                            <Link
+                                :href="route('projects.destroy', project.id)"
+                                method="delete"
+                                as="button"
+                                type="button"
+                                class="font-medium text-red-600 dark:text-red-500 hover:underline pl-1
+                                        ">Delete</Link>
                         </td>
                     </tr>
                     </tbody>
